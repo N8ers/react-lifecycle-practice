@@ -45,6 +45,19 @@ class Body extends Component {
 }
 
 class Numbers extends Component {
+  componentWillMount(){
+    console.log("componentWillMount called here");
+  }
+
+  componentDidMount(){
+    console.log("componentDidMount called here");
+  }
+
+  componentWillReceiveProps(newProps){
+    console.log("componentWillReceiveProps called");
+    
+  }
+
   render(){
     return(
       <div>
