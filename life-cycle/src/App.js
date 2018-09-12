@@ -10,24 +10,49 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Component life cycle</h1>
         </header>
-
+        <Body />
       </div>
     );
   }
 }
 
-class Body extends component {
+class Body extends Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+      rand:0
+    },
+    this.getRandomNumber = this.getRandomNumber.bind(this);
+  }
+
+  getRandomNumber(){
+    // console.log("random number called");
+    this.setState({ rand: Math.floor(Math.random()*100) })
+  }
+
   render(){
     return(
       <div>        
         <p className="App-intro">
         To get started, edit src/App.js and save to reload.
         </p>
+        <button onClick={this.getRandomNumber}>Random Number Generator!!!</button>
+      <Numbers myNumber={this.state.rand} />
       </div>
     )
   }
 }
 
-
+class Numbers extends Component {
+  render(){
+    return(
+      <div>
+        <br />
+        {this.props.myNumber}
+      </div>
+    );
+  }
+}
 
 export default App;
